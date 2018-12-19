@@ -1,0 +1,18 @@
+#在图片上写字
+
+img = cv2.imread('elephant.png')
+while True:
+    W = 3.752
+    H = 4.382
+    L = 8.342
+    W = round(W, 2)   # round函数将W保留两位小数
+    H = round(H, 2)
+    L = round(L, 2)
+    text = "W:"+str(W)+" " + "H:"+str(H) + " " + "L:"+str(L)   #文字内容
+    cv2.putText(img, text, (40, 50), cv2.FONT_HERSHEY_PLAIN, 2.0, (0, 0, 255), 2)  #
+    cv2.imshow("ori_image", img)
+    key = cv2.waitKey(delay=1)
+    if key == 27:
+        cv2.destroyAllWindows()
+        cv2.imwrite("new_img.png", img)
+        break
